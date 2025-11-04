@@ -2,7 +2,12 @@ name: Check Biletinial
 
 on:
   schedule:
-    - cron: '0 6,18 * * *'   # 06:00 ve 18:00 UTC = 09:00 ve 21:00 TRT
+    # UTC saatine göre (Türkiye UTC+3)
+    - cron: '5 7 * * *'   # 10:05 TRT
+    - cron: '5 9 * * *'   # 12:05 TRT
+    - cron: '5 12 * * *'  # 15:05 TRT
+    - cron: '5 14 * * *'  # 17:05 TRT
+    - cron: '5 17 * * *'  # 20:05 TRT
   workflow_dispatch: {}
 
 jobs:
