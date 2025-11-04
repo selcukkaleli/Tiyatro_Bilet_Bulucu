@@ -1,0 +1,41 @@
+name: Check Biletinial
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'   # 06:00 ve 18:00 UTC = 09:00 ve 21:00 TRT
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Restore state.json cache
+        uses: actions/cache@v4
+        with:
+          path: state.json
+          key: state-json
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          TARGET_URL: https://biletinial.com/tr-tr/tiyatro/profesyonel-dt
+          VENUE_URL: https://biletinial.com/tr-tr/mekan/istanbul-devlet-tiyatrosu
+          CUTOFF_DATE: 2025-11-14
+          ALLOWED_MONTHS: Kasım,Aralık
+        run: python monitor.py
