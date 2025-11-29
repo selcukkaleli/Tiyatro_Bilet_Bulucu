@@ -41,5 +41,5 @@ jobs:
           TARGET_URL: https://biletinial.com/tr-tr/tiyatro/profesyonel-dt
           VENUE_URL: https://biletinial.com/tr-tr/mekan/istanbul-devlet-tiyatrosu
           CUTOFF_DATE: 2025-11-14
-          ALLOWED_MONTHS: Kasım,Aralık,Ocak,Subat,Mart
+          ALLOWED_MONTHS: ""
         run: python monitor.py
