@@ -1,15 +1,12 @@
 name: Check Biletinial
-
 on:
   schedule:
-    # UTC saatine göre (Türkiye UTC+3)
-    - cron: '5 7 * * *'   # 10:05 TRT
-    - cron: '5 9 * * *'   # 12:05 TRT
-    - cron: '5 12 * * *'  # 15:05 TRT
-    - cron: '5 14 * * *'  # 17:05 TRT
-    - cron: '5 17 * * *'  # 20:05 TRT
+    - cron: '5 7 * * *'
+    - cron: '5 9 * * *'
+    - cron: '5 12 * * *'
+    - cron: '5 14 * * *'
+    - cron: '5 17 * * *'
   workflow_dispatch: {}
-
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -26,7 +23,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: state.json
-          key: state-json
+          key: state-${{ github.run_id }}
+          restore-keys: |
+            state-
 
       - name: Install deps
         run: pip install -r requirements.txt
@@ -42,5 +41,5 @@ jobs:
           TARGET_URL: https://biletinial.com/tr-tr/tiyatro/profesyonel-dt
           VENUE_URL: https://biletinial.com/tr-tr/mekan/istanbul-devlet-tiyatrosu
           CUTOFF_DATE: 2025-11-14
-          ALLOWED_MONTHS: Kasım,Aralık
+          ALLOWED_MONTHS: Kasım,Aralık,Ocak,Subat,Mart
         run: python monitor.py
