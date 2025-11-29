@@ -194,7 +194,7 @@ def main():
     list_lines = "\n".join(f"- {d.strftime('%d %B %Y')}" for d in newer)
     body = f"""Merhaba,
 
-"PROFESYONEL İstanbul Avrupa Biletleri" için yeni tarih(ler) tespit edildi.
+"PROFESYONEL" oyunu için yeni tarih(ler) tespit edildi.
 
 Bulunanlar:
 {list_lines}
