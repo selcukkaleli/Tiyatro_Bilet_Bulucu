@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Biletinial - PROFESYONEL (İstanbul Avrupa) tarih izleyici.
+Biletinial - PROFESYONEL oyunu içn yeni oyun tarihi izleyicisi.
 14 Kasım 2025 ve SONRASI bir tarih görünürse e-posta gönderir.
 Windows Görev Zamanlayıcı ile günde 2 kez koşturulabilir.
 """
