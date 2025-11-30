@@ -1,4 +1,4 @@
-Biletinial Profesyonel – Oyun Tarihi İzleyicisi
+# Biletinial Profesyonel – Oyun Tarihi İzleyicisi
 Bu repo, Biletinial üzerinden “PROFESYONEL” oyunu için yeni oyun tarihlerini takip eden küçük bir Python otomasyon scriptini içeriyor.
 Amaç, belirli bir tarihten sonra (örn. 2025-11-14) yeni bir gösterim açıldığında otomatik e-posta uyarısı almak.
  
@@ -27,6 +27,7 @@ Kullanılan Teknolojiler
 •	json, pathlib – basit kalıcı durum (state) takibi
  
 Kurulum
+```
 git clone https://github.com/<kullanici-adi>/<repo-adi>.git
 cd <repo-adi>
 pip install -r requirements.txt
@@ -45,7 +46,7 @@ FROM_EMAIL="kullanici@ornek.com"
 TO_EMAIL="hedef@ornek.com"
 
 DEBUG=0
- 
+``` 
 Çalıştırma
 Komutu elle çalıştırmak için:
 python bilet_izleyici.py
